@@ -1,0 +1,16 @@
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+df = pd.DataFrame({
+    "IceCreams": [10, 20, 30, 40, 50],
+    "Temperature": [20, 25, 30, 35, 40]
+})
+
+X = df[["IceCreams"]]
+y = df["Temperature"]
+
+model = LinearRegression()
+model.fit(X, y)
+
+sales = float(input("Enter ice-creams sold: "))
+print("Predicted temperature:", model.predict([[sales]])[0])
