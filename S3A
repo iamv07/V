@@ -1,0 +1,6 @@
+temperature = int(input("Enter temperature: "))
+
+if temperature > 30:
+    print("Fan ON")
+else:
+    print("Fan OFF")
