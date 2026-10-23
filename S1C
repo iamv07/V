@@ -1,0 +1,9 @@
+previous = input("Enter previous room status (CLEAN/DIRTY): ").upper()
+current = input("Enter current room status (CLEAN/DIRTY): ").upper()
+
+if previous not in ["CLEAN", "DIRTY"] or current not in ["CLEAN", "DIRTY"]:
+    print("Invalid input")
+elif current == "DIRTY":
+    print("Action: Clean the room")
+else:
+    print("Action: Room is clean")
