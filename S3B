@@ -1,0 +1,27 @@
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+
+data = {
+    "Age": [20, 25, 30, 35, 40, 45, 22, 28],
+    "Exercise": [5, 4, 3, 1, 1, 0, 6, 4],
+    "Fitness": [1, 1, 1, 0, 0, 0, 1, 1]
+}
+
+df = pd.DataFrame(data)
+X = df[["Age", "Exercise"]]
+y = df["Fitness"]
+
+model = RandomForestClassifier(random_state=42)
+model.fit(X, y)
+
+n = int(input("Enter number of people: "))
+
+for i in range(n):
+    age = int(input("Enter age: "))
+    exercise = float(input("Enter exercise hours per week: "))
+    result = model.predict([[age, exercise]])[0]
+
+    if result == 1:
+        print("FIT")
+    else:
+        print("UNFIT")
